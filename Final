@@ -1,0 +1,80 @@
+var mySound;
+
+function preload() {
+  soundFormats('m4a', 'ogg');
+  mySound = loadSound('De-stress.m4a');
+}
+
+function setup() {
+  createCanvas(500, 500);
+  colorMode(HSB);
+  mySound.play();
+}
+var bubbles = [{
+    x: 50,
+    size: 250,
+    changeInBubble: 1
+  },
+  {
+    x: 100,
+    size: 225,
+    changeInBubble: 1
+  },
+  {
+    x: 150,
+    size: 200,
+    changeInBubble: 1
+  },
+  {
+    x: 200,
+    size: 175,
+    changeInBubble: 1
+  },
+  {
+    x: 250,
+    size: 150,
+    changeInBubble: 1
+  },
+  {
+    x: 300,
+    size: 125,
+    changeInBubble: 1
+  },
+  {
+    x: 350,
+    size: 100,
+    changeInBubble: 1
+  },
+  {
+    x: 400,
+    size: 75,
+    changeInBubble: 1
+  }, {
+    x: 450,
+    size: 50,
+    changeInBubble: 1
+  },
+];
+function draw() {
+  background(244, 20, 100);
+  strokeWeight(3);
+	stroke(85, 20, 100);
+  fill(85, 20, 90, 0.5);
+  
+  for (var i = 0; i < bubbles.length; i = i + 1) {
+    ellipse(bubbles[i].x, 350, bubbles[i].size, bubbles[i].size);
+    bubbles[i].size = bubbles[i].size + bubbles[i].changeInBubble
+    if (bubbles[i].size > 250) {
+      bubbles[i].changeInBubble = -1;
+    }
+
+    if (bubbles[i].size < 50) {
+      bubbles[i].changeInBubble = 1;
+    }
+    textSize(35);
+		text("You Got This,", 150, 75);
+    textSize(32);
+		text("Just Breathe!", 165, 115);
+    
+  } 
+}
